@@ -1,10 +1,13 @@
 import React from "react";
-import { Text, TextInput, View, ScrollView } from "react-native";
+import { Text, TextInput, View, ScrollView, Button } from "react-native";
 import { connect } from "react-redux";
 import { fetchTheme, fetchUser } from "../redux/ActionCreators";
 import Profile from "./ProfileHeaderComponent/MainComponent";
 import ProfileBody from "./ProfileBodyComponent/MainComponent";
 import * as SecureStore from "expo-secure-store";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import FeatureScreen from "./FeatureComponent/MainComponent";
 
 const mapStateToProps = (state) => {
   return {
@@ -18,6 +21,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchUser: () => dispatch(fetchUser()),
 });
 
+const Stack = createStackNavigator();
 class Main extends React.Component {
   componentDidMount() {
     this.props.fetchTheme();
@@ -35,12 +39,41 @@ class Main extends React.Component {
       );
     } else {
       return (
-        <View>
-          <Profile />
-          <ProfileBody />
-        </View>
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName="Home"
+            screenOptions={{
+              headerShown: false,
+            }}
+          >
+            <Stack.Screen name="Main" component={MainScreen} />
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Feature" component={FeatureScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
       );
     }
   }
 }
+
+const MainScreen = ({ navigation }) => {
+  return (
+    <View
+      style={{
+        marginTop: 30,
+      }}
+    >
+      <Button title="Go to Home" onPress={() => navigation.navigate("Home")} />
+    </View>
+  );
+};
+
+const HomeScreen = ({ navigation }) => {
+  return (
+    <View>
+      <Profile />
+      <ProfileBody navigation={navigation} />
+    </View>
+  );
+};
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
