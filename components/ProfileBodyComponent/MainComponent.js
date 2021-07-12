@@ -1,10 +1,9 @@
 import * as React from "react";
-import { Button } from "react-native";
-import { View, Dimensions, Text } from "react-native";
-import { Avatar } from "react-native-elements";
+import { View, Dimensions, Text, StyleSheet, ScrollView } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { connect } from "react-redux";
 import { fetchTheme, fetchUser } from "../../redux/ActionCreators";
+import HexaView from "./HexaViewComponent";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -67,10 +66,25 @@ const CardBody = ({ props }) => {
     </View>
   );
 };
+
 const RenderCard = ({ props, navigation }) => {
   return (
-    <View>
-      <CardBody
+    <ScrollView>
+      {/* <CardBody
+        props={{
+          value: [
+            { data: "Skills", color: props.theme.data.skill_color },
+            { data: "Projects", color: props.theme.data.project_color },
+            { data: "Work Experience", color: props.theme.data.work_color },
+            { data: "Hobbies", color: props.theme.data.hobby_color },
+          ],
+          theme: props.theme,
+          user: props.user,
+          navigation: navigation,
+        }}
+      /> */}
+
+      <HexaView
         props={{
           value: [
             { data: "Skills", color: props.theme.data.skill_color },
@@ -83,32 +97,23 @@ const RenderCard = ({ props, navigation }) => {
           navigation: navigation,
         }}
       />
-    </View>
+    </ScrollView>
   );
 };
 
 class ProfileBody extends React.Component {
-  componentDidMount() {
-    const metadata = this.props.user.data.metadata;
-    const skills = metadata.filter(function (data) {
-      if (data.type == "skill") return data;
-    });
-  }
   constructor() {
     super();
   }
 
   render() {
-    // const { navigate } = this.props.navigation;
-    // console.log(
-    //   "USER METADATA ________" + JSON.stringify(this.props.user.data.metadata)
-    // );
     return (
-      <View>
-        {/* <Button
-          title="Go to Details"
-          onPress={() => this.props.navigation.navigate("Feature")}
-        /> */}
+      <View
+        style={{
+          backgroundColor: this.props.theme.data.profile_background_color,
+          height: windowHeight,
+        }}
+      >
         <RenderCard props={this.props} navigation={this.props.navigation} />
       </View>
     );

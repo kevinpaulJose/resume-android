@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Dimensions, Text } from "react-native";
+import { View, Dimensions, Text, StyleSheet } from "react-native";
 import { Avatar } from "react-native-elements";
 import { connect } from "react-redux";
 import { fetchTheme, fetchUser } from "../../redux/ActionCreators";
@@ -30,17 +30,18 @@ const ProfileBackground = ({ props }) => {
     <View
       style={{
         width: windowWidth,
-        height: windowHeight / 3.1,
+        height: windowHeight / 3.4,
+        backgroundColor: props.theme.data.profile_background_color,
       }}
     >
       <View
         style={{
           width: windowWidth,
           height: windowHeight / 5,
-          backgroundColor: props.theme.data.profile_background_color,
+          backgroundColor: props.theme.data.profile_dark_color,
         }}
       >
-        <AvatarImage />
+        <AvatarImage props={props} />
         <ProfileText props={props} />
       </View>
     </View>
@@ -53,7 +54,7 @@ const ProfileText = ({ props }) => {
       style={{
         position: "absolute",
         top: windowHeight / 8,
-        left: windowWidth / 2.1,
+        left: windowWidth / 2.3,
       }}
     >
       <View>
@@ -61,6 +62,7 @@ const ProfileText = ({ props }) => {
           style={{
             fontSize: 0.06 * windowWidth,
             color: props.theme.data.profile_text_color,
+            fontWeight: "bold",
           }}
         >
           {props.user.data.name}
@@ -80,23 +82,56 @@ const ProfileText = ({ props }) => {
   );
 };
 
-const AvatarImage = () => {
+const AvatarImage = ({ props }) => {
   return (
     <View>
+      <View
+        style={{
+          backgroundColor: props.theme.data.profile_dark_color,
+          borderRadius: 100,
+          // backgroundColor: "black",
+          width: 130,
+          height: 130,
+          marginTop: 90,
+          marginLeft: 20,
+        }}
+      ></View>
+      {/* <View
+        style={{
+          // backgroundColor: props.theme.data.profile_background_color,
+          borderRadius: 100,
+          backgroundColor: "red",
+          width: 110,
+          height: 110,
+          marginTop: 100,
+          marginLeft: 30,
+          position: "absolute",
+        }}
+      ></View> */}
       <Avatar
         containerStyle={{
-          marginTop: 70,
-          marginLeft: 20,
+          borderRadius: 100,
+          backgroundColor: "red",
+          width: 110,
+          height: 110,
+          marginTop: 100,
+          marginLeft: 30,
+          position: "absolute",
         }}
         size="xlarge"
         rounded
         source={{
-          uri:
-            "https://firebasestorage.googleapis.com/v0/b/resume-2e348.appspot.com/o/profile.jpg?alt=media&token=379de7be-073b-4842-8caf-8280c3c08c15",
+          uri: "https://firebasestorage.googleapis.com/v0/b/resume-2e348.appspot.com/o/profile.jpg?alt=media&token=379de7be-073b-4842-8caf-8280c3c08c15",
         }}
       />
     </View>
   );
 };
+
+// const styles = StyleSheet.create({
+//   shadow: {
+//     borderRadius:
+//   }
+// })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

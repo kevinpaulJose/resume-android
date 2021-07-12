@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "Resume - Kevin",
+    "icon": "icon.png",
+    "version": "1.0.0",
+    "slug": "resume-android",
+    "ios": {
+      "bundleIdentifier": "com.resumekev.kev",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.resumekev.kev",
+      "versionCode": 1
+    },
+    "description": ""
+  }
+}
