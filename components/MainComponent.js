@@ -8,6 +8,7 @@ import * as SecureStore from "expo-secure-store";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import FeatureScreen from "./FeatureComponent/MainComponent";
+import LoadingScreen from "./LoadingComponent";
 
 const mapStateToProps = (state) => {
   return {
@@ -32,11 +33,8 @@ class Main extends React.Component {
 
   render() {
     if (this.props.theme.isLoading || this.props.user.isLoading) {
-      return (
-        <View>
-          <Text>Loading </Text>
-        </View>
-      );
+      // if (true) {
+      return <LoadingScreen />;
     } else {
       return (
         <NavigationContainer>

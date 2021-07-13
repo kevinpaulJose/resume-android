@@ -1,31 +1,20 @@
 import React from "react";
+import { Platform } from "react-native";
 import { View, Dimensions, Text, StyleSheet } from "react-native";
-import { Avatar } from "react-native-elements";
+import { Icon } from "react-native-elements";
 import { connect } from "react-redux";
+import { getIcon } from "../../const/default_theme";
 import { fetchTheme, fetchUser } from "../../redux/ActionCreators";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
-const mapStateToProps = (state) => {
-  return {
-    theme: state.theme,
-    user: state.user,
-  };
+export default Header = ({ props, navigation }) => {
+  //   console.log(props);
+  return <ProfileBackground props={props} navigation={navigation} />;
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchTheme: () => dispatch(fetchTheme()),
-  fetchUser: () => dispatch(fetchUser()),
-});
-
-class Profile extends React.Component {
-  render() {
-    return <ProfileBackground props={this.props} />;
-  }
-}
-
-const ProfileBackground = ({ props }) => {
+const ProfileBackground = ({ props, navigation }) => {
   return (
     <View
       style={{
@@ -41,6 +30,29 @@ const ProfileBackground = ({ props }) => {
           backgroundColor: props.theme.data.profile_dark_color,
         }}
       >
+        {Platform.OS === "android" ? (
+          <View
+            style={{
+              position: "absolute",
+              top: 45,
+              left: 10,
+            }}
+          >
+            <Icon
+              raised
+              name="arrow-back-outline"
+              type="ionicon"
+              size={30}
+              color="rgb(100,100,100)"
+              // reverse={true}
+              raised={false}
+              onPress={() => navigation.pop()}
+            />
+          </View>
+        ) : (
+          <View></View>
+        )}
+
         <AvatarImage props={props} />
         <ProfileText props={props} />
       </View>
@@ -53,7 +65,7 @@ const ProfileText = ({ props }) => {
     <View
       style={{
         position: "absolute",
-        top: windowHeight / 8,
+        top: windowHeight / 7,
         left: windowWidth / 2.3,
       }}
     >
@@ -65,17 +77,7 @@ const ProfileText = ({ props }) => {
             fontWeight: "bold",
           }}
         >
-          {props.user.data.name}
-        </Text>
-      </View>
-      <View>
-        <Text
-          style={{
-            color: props.theme.data.profile_text_secondary_color,
-            fontSize: 0.03 * windowWidth,
-          }}
-        >
-          {props.user.data.designation}
+          {props.selected.data}
         </Text>
       </View>
     </View>
@@ -96,24 +98,35 @@ const AvatarImage = ({ props }) => {
           marginLeft: 20,
         }}
       ></View>
-      <Avatar
-        containerStyle={{
+      <View
+        style={{
           borderRadius: 100,
-          backgroundColor: "red",
+          backgroundColor: props.color,
           width: 110,
           height: 110,
           marginTop: 100,
           marginLeft: 30,
           position: "absolute",
         }}
-        size="xlarge"
-        rounded
-        source={{
-          uri: "https://firebasestorage.googleapis.com/v0/b/resume-2e348.appspot.com/o/profile.jpg?alt=media&token=379de7be-073b-4842-8caf-8280c3c08c15",
-        }}
-      />
+      >
+        <View
+          style={{
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Icon
+            raised
+            name={getIcon({ name: props.selected.data })}
+            type="ionicon"
+            size={40}
+            color="rgba(100,100,100,0)"
+            reverse={true}
+            raised={false}
+          />
+        </View>
+      </View>
     </View>
   );
 };
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);

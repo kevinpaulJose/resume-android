@@ -19,79 +19,12 @@ const mapDispatchToProps = (dispatch) => ({
   fetchTheme: () => dispatch(fetchTheme()),
   fetchUser: () => dispatch(fetchUser()),
 });
-const CardBody = ({ props }) => {
-  return (
-    <View>
-      {props.value.map((prop, key) => {
-        return (
-          <TouchableOpacity
-            key={key}
-            onPress={() =>
-              props.navigation.navigate("Feature", {
-                props: {
-                  theme: props.theme,
-                  user: props.user,
-                  selected: prop,
-                },
-                navigation: props.navigation,
-              })
-            }
-          >
-            <View
-              key={key}
-              style={{
-                width: windowWidth - 40,
-                height: windowHeight / 7,
-                backgroundColor: prop.color,
-                marginLeft: 20,
-                marginBottom: 20,
-                borderRadius: 10,
-                justifyContent: "center",
-              }}
-            >
-              <Text
-                style={{
-                  textAlign: "left",
-                  marginLeft: 30,
-                  fontSize: 0.06 * windowWidth,
-                  color: props.theme.data.profile_text_color,
-                }}
-              >
-                {prop.data}
-              </Text>
-            </View>
-          </TouchableOpacity>
-        );
-      })}
-    </View>
-  );
-};
 
 const RenderCard = ({ props, navigation }) => {
   return (
     <ScrollView>
-      {/* <CardBody
-        props={{
-          value: [
-            { data: "Skills", color: props.theme.data.skill_color },
-            { data: "Projects", color: props.theme.data.project_color },
-            { data: "Work Experience", color: props.theme.data.work_color },
-            { data: "Hobbies", color: props.theme.data.hobby_color },
-          ],
-          theme: props.theme,
-          user: props.user,
-          navigation: navigation,
-        }}
-      /> */}
-
       <HexaView
         props={{
-          value: [
-            { data: "Skills", color: props.theme.data.skill_color },
-            { data: "Projects", color: props.theme.data.project_color },
-            { data: "Work Experience", color: props.theme.data.work_color },
-            { data: "Hobbies", color: props.theme.data.hobby_color },
-          ],
           theme: props.theme,
           user: props.user,
           navigation: navigation,
