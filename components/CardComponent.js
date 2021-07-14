@@ -39,13 +39,28 @@ const CardComponent = ({ props }) => {
           top: 10,
         }}
       >
-        <Icon
-          name={getIconChild({ name: props.selected })}
-          type="ionicon"
-          size={70}
-          color={props.iconColor}
-          raised={false}
-        />
+        {getIconChild({ name: props.selected }).length !== 1 ? (
+          <Icon
+            name={getIconChild({ name: props.selected })}
+            type="ionicon"
+            size={70}
+            color={props.iconColor}
+            raised={false}
+          />
+        ) : (
+          <View>
+            <Text
+              style={{
+                fontWeight: "bold",
+                fontSize: 50,
+                marginLeft: 10,
+                color: props.iconColor,
+              }}
+            >
+              {getIconChild({ name: props.selected })}
+            </Text>
+          </View>
+        )}
       </View>
       <View
         style={{
@@ -63,26 +78,28 @@ const CardComponent = ({ props }) => {
           {props.selected}
         </Text>
       </View>
-      <View
-        style={{
-          marginLeft: windowWidth / 3.5,
-        }}
-      >
-        <Text
+      {props.proficiency === "" ? null : (
+        <View
           style={{
-            color: props.textColor,
-            fontSize: 11,
+            marginLeft: windowWidth / 3.5,
           }}
         >
-          Proficiency: {props.proficiency}
-        </Text>
-      </View>
+          <Text
+            style={{
+              color: props.textColor,
+              fontSize: 11,
+            }}
+          >
+            {props.proficiency}
+          </Text>
+        </View>
+      )}
 
       <View
         style={{
-          paddingLeft: 20,
+          paddingLeft: 15,
           paddingRight: 20,
-          marginTop: 20,
+          marginTop: 30,
         }}
       >
         <Text
@@ -112,7 +129,7 @@ const CardComponent = ({ props }) => {
                 textAlign: "left",
               }}
             >
-              HandsOn Works:
+              Links:
             </Text>
           </View>
           {props.link.split(";").map((link) =>

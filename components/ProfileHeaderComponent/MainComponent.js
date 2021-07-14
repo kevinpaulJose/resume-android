@@ -109,7 +109,7 @@ const AvatarImage = ({ props }) => {
         size="xlarge"
         rounded
         source={{
-          uri: "https://firebasestorage.googleapis.com/v0/b/resume-2e348.appspot.com/o/profile.jpg?alt=media&token=379de7be-073b-4842-8caf-8280c3c08c15",
+          uri: props.user.data.profile_image,
         }}
       />
     </View>

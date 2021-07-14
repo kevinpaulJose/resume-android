@@ -44,6 +44,7 @@ const descGenerator = ({ desc }) => {
   return retData;
 };
 export default Body = ({ props }) => {
+  let thisData = getThisData({ props: props });
   console.log(getThisData({ props: props }));
   return (
     <View
@@ -55,39 +56,42 @@ export default Body = ({ props }) => {
       }}
     >
       <ScrollView>
-        <View
-          style={{
-            marginLeft: 30,
-            marginTop: 20,
-          }}
-        >
-          <CardComponent
-            props={{
-              bgColor: props.color,
-              shadowColor: props.theme.data.profile_dark_color,
-              selected: "JavaScript",
-              iconColor: props.theme.data.profile_text_secondary_color,
-              selectedParent: "Skills",
-              textColor: props.theme.data.profile_text_color,
-              proficiency: descGenerator({
-                desc: "Expert;yes;yes;Created an e-commerce website for a local aquarium. This application is created with React Native :)",
-              }).proficiency,
-              desc: descGenerator({
-                desc: "Expert;yes;yes;Created an e-commerce website for a local aquarium. This application is created with React Native :)",
-              }).desc,
-              link: descGenerator({
-                desc: "Expert;yes;yes;Created an e-commerce website for a local aquarium. This application is created with React Native :)",
-              }).linkAvailable
-                ? "http://evaltacademy.com;"
-                : "",
-              certificates: descGenerator({
-                desc: "Expert;yes;yes;Created an e-commerce website for a local aquarium. This application is created with React Native :)",
-              }).certificatesAvailable
-                ? "https://www.coursera.org/account/accomplishments/specialization/35D6HHB5DBLK;https://www.coursera.org/account/accomplishments/specialization/35D6HHB5DBLK;"
-                : "",
+        {thisData.map((data) => (
+          <View
+            style={{
+              marginLeft: 30,
+              marginTop: 10,
+              marginBottom: 10,
             }}
-          />
-        </View>
+          >
+            <CardComponent
+              props={{
+                bgColor: props.color,
+                shadowColor: props.theme.data.profile_dark_color,
+                selected: data.name,
+                iconColor: props.theme.data.profile_text_secondary_color,
+                selectedParent: data.type,
+                textColor: props.theme.data.profile_text_color,
+                proficiency: descGenerator({
+                  desc: data.proficiency,
+                }).proficiency,
+                desc: descGenerator({
+                  desc: data.proficiency,
+                }).desc,
+                link: descGenerator({
+                  desc: data.proficiency,
+                }).linkAvailable
+                  ? data.link
+                  : "",
+                certificates: descGenerator({
+                  desc: data.proficiency,
+                }).certificatesAvailable
+                  ? data.certificate
+                  : "",
+              }}
+            />
+          </View>
+        ))}
       </ScrollView>
     </View>
   );

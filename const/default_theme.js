@@ -5,7 +5,7 @@ export const default_theme = {
 export const getIcon = ({ name }) => {
   switch (name) {
     case "Skills":
-      return "medal";
+      return "ribbon";
     case "Projects":
       return "code";
     case "Work Experience":
@@ -28,7 +28,13 @@ export const getIconChild = ({ name }) => {
     case "Firebase":
       return "logo-firebase";
     case "Azure DevOps":
-      return "logo-soundcloud";
+      return "cloud";
+    case "Flowmed":
+      return "business";
+    case "Accenture":
+      return "send";
+    case "Fish Keeping":
+      return "heart";
     default:
       return name.charAt(0);
   }

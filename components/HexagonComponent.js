@@ -64,7 +64,7 @@ export default Hexagon = ({ props, text, internalColor }) => {
       >
         <View
           style={{
-            width: 136,
+            width: 137,
             height: 70,
             backgroundColor: internalColor,
           }}
@@ -86,7 +86,7 @@ export default Hexagon = ({ props, text, internalColor }) => {
               borderStyle: "solid",
               borderLeftWidth: 67,
               borderLeftColor: "transparent",
-              borderRightWidth: 67,
+              borderRightWidth: 70,
               borderRightColor: "transparent",
               borderBottomWidth: 34,
               borderBottomColor: internalColor,
@@ -104,7 +104,7 @@ export default Hexagon = ({ props, text, internalColor }) => {
               borderLeftColor: "transparent",
               borderRightWidth: 69,
               borderRightColor: "transparent",
-              borderTopWidth: 37,
+              borderTopWidth: 38,
               borderTopColor: internalColor,
             }}
           />
