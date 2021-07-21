@@ -28,7 +28,7 @@ export default BottomBar = ({ props }) => {
         bottom: 0,
       }}
     >
-      <TouchableOpacity
+      {/* <TouchableOpacity
         onPressIn={() => {
           if (Platform.OS === "ios") {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -72,7 +72,7 @@ export default BottomBar = ({ props }) => {
             raised={false}
           />
         </View>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <TouchableOpacity
         onPressOut={() => {
           if (Platform.OS === "ios") {

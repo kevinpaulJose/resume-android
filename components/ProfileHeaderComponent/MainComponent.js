@@ -171,6 +171,7 @@ const BottomSlider = ({ toggleSlider, isOpen, props }) => {
             raised={false}
           />
         </TouchableOpacity>
+
         <View
           style={{
             width: windowWidth / 2,
@@ -218,6 +219,23 @@ const BottomSlider = ({ toggleSlider, isOpen, props }) => {
             reverse={true}
             onPress={onShare}
           />
+        </View>
+        <View
+          style={{
+            position: "absolute",
+            top: windowWidth / 2 + windowWidth / 4 + 100,
+            left: windowWidth / 4 + windowWidth / 4 / 2,
+          }}
+        >
+          <Text
+            style={{
+              color: props.theme.data.profile_text_secondary_color,
+              fontSize: 16,
+              fontWeight: "bold",
+            }}
+          >
+            Share this App
+          </Text>
         </View>
       </View>
     </BottomSheet>
