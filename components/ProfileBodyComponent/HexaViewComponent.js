@@ -7,6 +7,8 @@ import { View, Dimensions, Text, StyleSheet, ScrollView } from "react-native";
 import { Icon } from "react-native-elements";
 import { getIcon } from "../../const/default_theme";
 import Hexagon from "../HexagonComponent";
+import HexagonL from "../HexagonComponentL";
+import BottomBar from "./BottomBarComponent";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -15,19 +17,24 @@ const HexaView = ({ props, navigation }) => {
   return (
     <View
       style={{
-        height: windowHeight,
+        height: windowHeight - 200,
       }}
     >
       <View
         style={{
           flexDirection: "row",
+          // flex: 1
+          // backgroundColor: "red",
+          flex: 1,
+          alignContent: "center",
+          justifyContent: "center",
         }}
       >
         <View
           key="Skills-wrapper"
           style={{
             marginTop: windowHeight / 20,
-            marginLeft: windowWidth / 9.5,
+            // marginLeft: windowWidth / 9.5,
           }}
         >
           <TouchableOpacity
@@ -196,13 +203,20 @@ const HexaView = ({ props, navigation }) => {
       <View
         style={{
           flexDirection: "row",
+          flex: 1,
+          // backgroundColor: "blue",
+          alignContent: "center",
+          justifyContent: "center",
+          // alignItems: "center",
+          position: "relative",
+          top: -30,
         }}
       >
         <View
           key="Work-wrapper"
           style={{
             marginTop: windowHeight / 15,
-            marginLeft: 130,
+            // marginLeft: 130,
           }}
         >
           <TouchableOpacity
@@ -287,13 +301,19 @@ const HexaView = ({ props, navigation }) => {
       <View
         style={{
           flexDirection: "row",
+          flex: 1,
+          // backgroundColor: "green",
+          alignContent: "center",
+          justifyContent: "center",
+          position: "relative",
+          top: -50,
         }}
       >
         <View
           key="hobbies-wrapper"
           style={{
             marginTop: windowHeight / 15,
-            marginLeft: windowWidth / 9.5,
+            // marginLeft: windowWidth / 9.5,
           }}
         >
           <TouchableOpacity
@@ -433,194 +453,7 @@ const HexaView = ({ props, navigation }) => {
         </View>
       </View>
 
-      <View
-        style={{
-          flexDirection: "row",
-        }}
-      >
-        <View
-          key="dummy-right-wrapper"
-          style={{
-            marginTop: windowHeight / 15,
-            marginLeft: -40,
-          }}
-        >
-          <TouchableOpacity
-            activeOpacity={1}
-            onPressIn={() => {
-              if (Platform.OS === "ios") {
-                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-              }
-            }}
-            onPressOut={() => {
-              if (Platform.OS === "ios") {
-                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).then(
-                  () => {
-                    Linking.openURL(
-                      "https://play.google.com/store/apps/developer?id=KJ+Productions"
-                    );
-                  }
-                );
-              } else {
-                Linking.openURL(
-                  "https://play.google.com/store/apps/developer?id=KJ+Productions"
-                );
-              }
-            }}
-          >
-            <Hexagon
-              props={props}
-              text="Skills"
-              internalColor={props.theme.data.contact_color}
-              //   internalColor="rgb( 102, 166, 199 )"
-            />
-            <View
-              style={{
-                position: "absolute",
-                top: -12,
-                left: 29,
-              }}
-            >
-              <Icon
-                raised
-                name="logo-google-playstore"
-                type="ionicon"
-                size={43}
-                color={props.theme.data.contact_color}
-                reverse={true}
-                raised={false}
-              />
-            </View>
-            <View
-              style={{
-                position: "absolute",
-                top: 50,
-                left: 48,
-              }}
-            ></View>
-          </TouchableOpacity>
-        </View>
-        <View
-          key="Work-wrapper"
-          style={{
-            marginTop: windowHeight / 15,
-            marginLeft: 20,
-          }}
-        >
-          <TouchableOpacity
-            activeOpacity={1}
-            onPressIn={() => {
-              if (Platform.OS === "ios") {
-                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-              }
-            }}
-            onPressOut={() => {
-              if (Platform.OS === "ios") {
-                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).then(
-                  () => {
-                    Linking.openURL(
-                      "https://www.linkedin.com/in/kevin-joseph-paul-44638b182/"
-                    );
-                  }
-                );
-              } else {
-                Linking.openURL(
-                  "https://www.linkedin.com/in/kevin-joseph-paul-44638b182/"
-                );
-              }
-            }}
-          >
-            <Hexagon
-              props={props}
-              text="Skills"
-              internalColor={props.theme.data.contact_color}
-              //   internalColor="rgb( 102, 166, 199 )"
-            />
-            <View
-              style={{
-                position: "absolute",
-                top: -12,
-                left: 23,
-              }}
-            >
-              <Icon
-                raised
-                name="logo-linkedin"
-                type="ionicon"
-                size={43}
-                color={props.theme.data.contact_color}
-                reverse={true}
-                raised={false}
-              />
-            </View>
-            <View
-              style={{
-                position: "absolute",
-                top: 50,
-                left: 48,
-              }}
-            ></View>
-          </TouchableOpacity>
-        </View>
-        <View
-          key="dummy-left-wrapper"
-          style={{
-            marginTop: windowHeight / 15,
-            marginLeft: 20,
-          }}
-        >
-          <TouchableOpacity
-            activeOpacity={1}
-            onPressIn={() => {
-              if (Platform.OS === "ios") {
-                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-              }
-            }}
-            onPressOut={() => {
-              if (Platform.OS === "ios") {
-                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).then(
-                  () => {
-                    Linking.openURL(`mailto:${props.user.data.mail}`);
-                  }
-                );
-              } else {
-                Linking.openURL(`mailto:${props.user.data.mail}`);
-              }
-            }}
-          >
-            <Hexagon
-              props={props}
-              text="Skills"
-              internalColor={props.theme.data.contact_color}
-              //   internalColor="rgb( 102, 166, 199 )"
-            />
-            <View
-              style={{
-                position: "absolute",
-                top: -15,
-                left: 23,
-              }}
-            >
-              <Icon
-                raised
-                name="mail"
-                type="ionicon"
-                size={43}
-                color={props.theme.data.contact_color}
-                reverse={true}
-                raised={false}
-              />
-            </View>
-            <View
-              style={{
-                position: "absolute",
-                top: 50,
-                left: 48,
-              }}
-            ></View>
-          </TouchableOpacity>
-        </View>
-      </View>
+      <BottomBar props={props} />
     </View>
   );
 };

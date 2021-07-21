@@ -30,8 +30,9 @@ const ProfileBackground = ({ props }) => {
     <View
       style={{
         width: windowWidth,
-        height: windowHeight / 3.4,
+        height: windowHeight / 3.7,
         backgroundColor: props.theme.data.profile_background_color,
+        // backgroundColor: "red",
       }}
     >
       <View
