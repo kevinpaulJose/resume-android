@@ -20,5 +20,5 @@ jobs:
       - run: expo login -u bkevin1999 -p 75a20d4f71
       - run: npm install -g yarn
       - run: yarn install
-      - run: expo build:android
+      - run: expo publish
 
