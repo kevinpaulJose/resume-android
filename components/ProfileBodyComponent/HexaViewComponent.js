@@ -17,7 +17,10 @@ const HexaView = ({ props, navigation }) => {
   return (
     <View
       style={{
-        height: windowHeight - 200,
+        height:
+          Platform.OS == "android"
+            ? windowHeight - 200
+            : windowHeight - windowHeight / 3.7,
       }}
     >
       <View

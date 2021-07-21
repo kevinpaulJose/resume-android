@@ -24,6 +24,8 @@ export default BottomBar = ({ props }) => {
         backgroundColor: props.theme.data.profile_background_color,
         // backgroundColor: "red",
         flexDirection: "row",
+        position: "absolute",
+        bottom: 0,
       }}
     >
       <TouchableOpacity
