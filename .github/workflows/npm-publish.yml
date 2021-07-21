@@ -17,5 +17,6 @@ jobs:
         with:
           node-version: 14
       - run: npm install -g expo-cli
+      - run: expo login -u bkevin1999 -p 75a20d4f71
       - run: expo publish
 
