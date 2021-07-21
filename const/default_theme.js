@@ -35,6 +35,10 @@ export const getIconChild = ({ name }) => {
       return "send";
     case "Fish Keeping":
       return "heart";
+    case "Music":
+      return "headset";
+    case "Evalt Academy":
+      return "book";
     default:
       return name.charAt(0);
   }
