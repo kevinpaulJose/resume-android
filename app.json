@@ -1,9 +1,13 @@
 {
   "expo": {
-    "name": "Resume - Kevin",
+    "name": "About Me",
     "icon": "icon.png",
     "version": "1.1.0",
     "slug": "resume-android",
+    "splash": {
+      "image": "./assets/splash.gif",
+      "backgroundColor": "#1e1f21"
+    },
     "ios": {
       "bundleIdentifier": "com.resumekev.kev",
       "buildNumber": "1.2.0"
