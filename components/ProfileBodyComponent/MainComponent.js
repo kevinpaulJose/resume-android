@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const RenderCard = ({ props, navigation }) => {
   return (
-    <ScrollView>
+    <View>
       <HexaView
         props={{
           theme: props.theme,
@@ -30,7 +30,7 @@ const RenderCard = ({ props, navigation }) => {
           navigation: navigation,
         }}
       />
-    </ScrollView>
+    </View>
   );
 };
 

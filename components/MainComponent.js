@@ -69,7 +69,7 @@ const MainScreen = ({ navigation }) => {
 const HomeScreen = ({ navigation }) => {
   return (
     <View>
-      <Profile />
+      <Profile navigation={navigation} />
       <ProfileBody navigation={navigation} />
     </View>
   );
