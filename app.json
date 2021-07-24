@@ -10,7 +10,7 @@
     },
     "android": {
       "package": "com.resumekev.kev",
-      "versionCode": 3,
+      "versionCode": 4,
       "permissions": []
     },
     "description": " "

@@ -19,60 +19,13 @@ export default BottomBar = ({ props }) => {
   return (
     <View
       style={{
-        width: windowWidth,
+        width: windowWidth - 40,
         height: 60,
         backgroundColor: props.theme.data.profile_background_color,
         // backgroundColor: "red",
         flexDirection: "row",
-        position: "absolute",
-        bottom: 0,
       }}
     >
-      {/* <TouchableOpacity
-        onPressIn={() => {
-          if (Platform.OS === "ios") {
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-          }
-        }}
-        onPressOut={() => {
-          if (Platform.OS === "ios") {
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).then(() => {
-              Linking.openURL(
-                "https://play.google.com/store/apps/developer?id=KJ+Productions"
-              );
-            });
-          } else {
-            Linking.openURL(
-              "https://play.google.com/store/apps/developer?id=KJ+Productions"
-            );
-          }
-        }}
-        activeOpacity={1}
-        style={{
-          flex: 1,
-          backgroundColor: props.theme.data.profile_dark_color,
-          height: 60,
-          borderRightWidth: 2,
-          borderRightColor: props.theme.data.profile_background_color,
-        }}
-      >
-        <View
-          style={{
-            flex: 1,
-            alignContent: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Icon
-            name="logo-google-playstore"
-            type="ionicon"
-            size={33}
-            color={props.theme.data.profile_text_color}
-            // reverse={true}
-            raised={false}
-          />
-        </View>
-      </TouchableOpacity> */}
       <TouchableOpacity
         onPressOut={() => {
           if (Platform.OS === "ios") {
@@ -92,8 +45,9 @@ export default BottomBar = ({ props }) => {
           flex: 1,
           backgroundColor: props.theme.data.profile_dark_color,
           height: 60,
-          borderRightWidth: 2,
+          borderRightWidth: 5,
           borderRightColor: props.theme.data.profile_background_color,
+          borderRadius: 100,
         }}
       >
         <View
@@ -133,6 +87,7 @@ export default BottomBar = ({ props }) => {
           flex: 1,
           backgroundColor: props.theme.data.profile_dark_color,
           height: 60,
+          borderRadius: 100,
         }}
       >
         <View

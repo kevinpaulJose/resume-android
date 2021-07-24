@@ -66,7 +66,7 @@ const MainScreen = ({ navigation }) => {
   );
 };
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ props, navigation }) => {
   return (
     <View>
       <Profile navigation={navigation} />

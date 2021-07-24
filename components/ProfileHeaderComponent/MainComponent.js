@@ -188,7 +188,7 @@ const BottomSlider = ({ toggleSlider, isOpen, props }) => {
           style={{
             width: windowWidth / 2 - 20,
             height: windowWidth / 2 - 20,
-            backgroundColor: "green",
+            backgroundColor: props.theme.data.profile_dark_color,
             position: "absolute",
             left: windowWidth / 4 + 10,
             top: windowWidth / 4 + 10,
@@ -286,17 +286,17 @@ const AvatarImage = ({ props }) => {
           // backgroundColor: "black",
           width: 130,
           height: 130,
-          marginTop: 90,
+          marginTop: 60,
           marginLeft: 20,
         }}
       ></View>
       <Avatar
         containerStyle={{
           borderRadius: 100,
-          backgroundColor: "red",
+          backgroundColor: props.theme.profile_dark_color,
           width: 110,
           height: 110,
-          marginTop: 100,
+          marginTop: 70,
           marginLeft: 30,
           position: "absolute",
         }}
