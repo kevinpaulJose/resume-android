@@ -23,13 +23,18 @@ const mapDispatchToProps = (dispatch) => ({
 const RenderCard = ({ props, navigation }) => {
   return (
     <View>
-      <HexaView
-        props={{
-          theme: props.theme,
-          user: props.user,
-          navigation: navigation,
-        }}
-      />
+      <View style={{ height: 500 }}>
+        <HexaView
+          props={{
+            theme: props.theme,
+            user: props.user,
+            navigation: navigation,
+          }}
+        />
+        <View style={{ marginLeft: 20 }}>
+          <BottomBar props={props} />
+        </View>
+      </View>
     </View>
   );
 };
@@ -45,6 +50,7 @@ class ProfileBody extends React.Component {
         style={{
           backgroundColor: this.props.theme.data.profile_background_color,
           height: windowHeight,
+          // marginTop: 20,
         }}
       >
         <RenderCard props={this.props} navigation={this.props.navigation} />
