@@ -6,7 +6,7 @@ import { theme } from "./theme";
 import { user } from "./user";
 
 import { persistStore, persistCombineReducers } from "redux-persist";
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const ConfigureStore = () => {
   const config = {

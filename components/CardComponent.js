@@ -9,7 +9,6 @@ import { Icon } from "react-native-elements";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 import { BlurView } from "expo-blur";
-import { getIconChild } from "../const/default_theme";
 import { Linking } from "react-native";
 
 const CardComponent = ({ props }) => {
@@ -35,15 +34,15 @@ const CardComponent = ({ props }) => {
       <View
         style={{
           position: "absolute",
-          left: 10,
-          top: 10,
+          left: 25,
+          top: 25,
         }}
       >
-        {getIconChild({ name: props.selected }).length !== 1 ? (
+        {props.icon !== "noicon" ? (
           <Icon
-            name={getIconChild({ name: props.selected })}
+            name={props.icon}
             type="ionicon"
-            size={70}
+            size={40}
             color={props.iconColor}
             raised={false}
           />
@@ -52,12 +51,12 @@ const CardComponent = ({ props }) => {
             <Text
               style={{
                 fontWeight: "bold",
-                fontSize: 50,
+                fontSize: 40,
                 marginLeft: 10,
                 color: props.iconColor,
               }}
             >
-              {getIconChild({ name: props.selected })}
+              {props.selected.charAt(0)}
             </Text>
           </View>
         )}

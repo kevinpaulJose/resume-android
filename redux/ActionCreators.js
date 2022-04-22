@@ -12,6 +12,15 @@ export const fetchTheme = () => async (dispatch) => {
   } else {
     dispatch(addTheme(doc.data()));
   }
+  setInterval(async () => {
+    const ref = firestore.collection("profileData").doc("UHJLqJScdBNLKAplZd23");
+    const doc = await ref.get();
+    if (!doc.exists) {
+      console.log("No such document!");
+    } else {
+      dispatch(addTheme(doc.data()));
+    }
+  }, 20000);
 };
 
 export const fetchUser = () => async (dispatch) => {
@@ -22,18 +31,17 @@ export const fetchUser = () => async (dispatch) => {
     console.log("No such document!");
   } else {
     dispatch(addUser(doc.data()));
-    // console.log("USER VALUES -------- " + doc.data());
   }
+  setInterval(async () => {
+    const ref = firestore.collection("userData").doc("rGsIDagOJJhvB4Ik6dg6");
+    const doc = await ref.get();
+    if (!doc.exists) {
+      console.log("No such document!");
+    } else {
+      dispatch(addUser(doc.data()));
+    }
+  }, 20000);
 };
-// export const updateTheme = (data) => (dispatch) => {
-//   dispatch(themeLoading());
-//   SecureStore.setItemAsync("themeInfo", JSON.stringify({ data }))
-//     .then(() => {
-//       console.log("Saved --------");
-//       dispatch(addTheme(data));
-//     })
-//     .catch((error) => console.log("Could not Save user " + error));
-// };
 
 export const themeLoading = () => ({
   type: ActionTypes.THEME_LOADING,

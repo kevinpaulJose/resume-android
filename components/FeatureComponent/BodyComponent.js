@@ -45,17 +45,22 @@ const descGenerator = ({ desc }) => {
 };
 export default Body = ({ props }) => {
   let thisData = getThisData({ props: props });
-  console.log(getThisData({ props: props }));
+  // console.log(getThisData({ props: props }));
   return (
     <View
       style={{
         backgroundColor: props.theme.data.profile_background_color,
         width: windowWidth,
-        height: windowHeight - 200,
-        paddingBottom: Platform.OS === "android" ? 20 : 100,
+        height: windowHeight,
+        // paddingBottom: Platform.OS === "android" ? 20 : 100,
+        // marginTop: 10,
       }}
     >
-      <ScrollView>
+      <ScrollView
+        style={{
+          marginBottom: 200,
+        }}
+      >
         {thisData.map((data) => (
           <View
             style={{
@@ -88,6 +93,7 @@ export default Body = ({ props }) => {
                 }).certificatesAvailable
                   ? data.certificate
                   : "",
+                icon: data.icon,
               }}
             />
           </View>

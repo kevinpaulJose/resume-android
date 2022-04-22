@@ -91,7 +91,6 @@ const HexaView = ({ props, navigation }) => {
               >
                 {/* {console.log(getIcon("Skills"))} */}
                 <Icon
-                  raised
                   name={getIcon({ name: "Skills" })}
                   type="ionicon"
                   size={33}
@@ -165,6 +164,7 @@ const HexaView = ({ props, navigation }) => {
                 props={props}
                 text="Skills"
                 internalColor={props.theme.data.project_color}
+                // internalColor={"red"}
                 //   internalColor="rgb( 102, 166, 199 )"
               />
               <View
@@ -175,7 +175,6 @@ const HexaView = ({ props, navigation }) => {
                 }}
               >
                 <Icon
-                  raised
                   name={getIcon({ name: "Projects" })}
                   type="ionicon"
                   size={33}
@@ -272,7 +271,6 @@ const HexaView = ({ props, navigation }) => {
                 }}
               >
                 <Icon
-                  raised
                   name={getIcon({ name: "Work Experience" })}
                   type="ionicon"
                   size={33}
@@ -369,7 +367,6 @@ const HexaView = ({ props, navigation }) => {
                 }}
               >
                 <Icon
-                  raised
                   name={getIcon({ name: "Hobbies" })}
                   type="ionicon"
                   size={33}
@@ -437,7 +434,6 @@ const HexaView = ({ props, navigation }) => {
                 }}
               >
                 <Icon
-                  raised
                   name="call"
                   type="ionicon"
                   size={43}

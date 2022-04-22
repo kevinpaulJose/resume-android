@@ -42,8 +42,11 @@ export const getIconChild = ({ name }) => {
     case "MSR Construction":
       return "hammer";
     case "Jim Aquarium":
-      return "fish";
+      return "cart";
+    case "Torrent Searcher":
+      return "search";
     default:
       return name.charAt(0);
   }
 };
+// #856331

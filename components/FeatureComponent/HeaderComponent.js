@@ -19,7 +19,7 @@ const ProfileBackground = ({ props, navigation }) => {
     <View
       style={{
         width: windowWidth,
-        height: windowHeight / 3.4,
+        height: windowHeight / 3.4 + 10,
         backgroundColor: props.theme.data.profile_background_color,
       }}
     >
@@ -39,7 +39,6 @@ const ProfileBackground = ({ props, navigation }) => {
             }}
           >
             <Icon
-              raised
               name="arrow-back-outline"
               type="ionicon"
               size={30}
@@ -117,7 +116,6 @@ const AvatarImage = ({ props }) => {
           }}
         >
           <Icon
-            raised
             name={getIcon({ name: props.selected.data })}
             type="ionicon"
             size={40}
