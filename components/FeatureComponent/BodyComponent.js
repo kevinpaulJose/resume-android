@@ -37,8 +37,8 @@ const descGenerator = ({ desc }) => {
   let temp = desc.split(";");
   let retData = {
     proficiency: temp[0],
-    linkAvailable: temp[1] === "yes" ? true : false,
-    certificatesAvailable: temp[2] === "yes" ? true : false,
+    linkAvailable: temp[1] === "yes",
+    certificatesAvailable: temp[2] === "yes",
     desc: temp[3],
   };
   return retData;
@@ -51,15 +51,19 @@ export default Body = ({ props }) => {
       style={{
         backgroundColor: props.theme.data.profile_background_color,
         width: windowWidth,
-        height: windowHeight,
+        // height: windowHeight,
         // paddingBottom: Platform.OS === "android" ? 20 : 100,
         // marginTop: 10,
+        // backgroundColor: "red"
       }}
     >
-      <ScrollView
-        style={{
-          marginBottom: 200,
-        }}
+      <View
+        style={
+          {
+            // marginBottom: windowHeight - (windowHeight - 250),
+            // height: windowHeight
+          }
+        }
       >
         {thisData.map((data) => (
           <View
@@ -98,7 +102,8 @@ export default Body = ({ props }) => {
             />
           </View>
         ))}
-      </ScrollView>
+      </View>
+      <View style={{ width: 200, height: 100 }} />
     </View>
   );
 };

@@ -2,16 +2,21 @@
   "expo": {
     "name": "About Me",
     "icon": "icon.png",
-    "version": "1.2.0",
+    "version": "1.4.0",
     "slug": "resume-android",
     "ios": {
       "bundleIdentifier": "com.resumekev.kev",
-      "buildNumber": "1.2.0"
+      "buildNumber": "1.4.0"
     },
     "android": {
       "package": "com.resumekev.kev",
-      "versionCode": 5,
+      "versionCode": 10,
       "permissions": []
+    },
+    "updates": {
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 0
     },
     "description": " "
   }

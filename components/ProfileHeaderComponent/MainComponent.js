@@ -220,7 +220,7 @@ const BottomSlider = ({ toggleSlider, isOpen, props }) => {
             onPress={onShare}
           />
         </View>
-        <View
+        {/* <View
           style={{
             position: "absolute",
             top: windowWidth / 2 + windowWidth / 4 + 100,
@@ -236,7 +236,7 @@ const BottomSlider = ({ toggleSlider, isOpen, props }) => {
           >
             Share this App
           </Text>
-        </View>
+        </View> */}
       </View>
     </BottomSheet>
   );
